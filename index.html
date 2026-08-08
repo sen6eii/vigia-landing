@@ -776,6 +776,45 @@ section { padding: 96px 24px; }
 .pill-cyan  { background: var(--c-soft); border: 1px solid var(--c-bord); color: var(--cyan); }
 .pill-amber { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); color: #F59E0B; }
 
+/* ── FAQ ── */
+.faq-section {
+  padding-top: 0;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+  max-width: 780px;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--t1);
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-answer {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--t2);
+}
+
 /* ── CTA ── */
 .cta-section {
   text-align: center;
@@ -931,9 +970,11 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Vigía</a>
+  <a href="#" class="nav-logo" aria-label="Vigía">
+    <img src="img/vigia-isotipo.png" alt="Vigía" style="height: 28px; width: auto; display: block;">
+  </a>
   <ul class="nav-links">
-    <li><a href="#video">El proyecto</a></li>
+    <li><a href="#encuesta">Validación</a></li>
     <li><a href="#como">Cómo funciona</a></li>
     <li><a href="#privacidad">Privacidad</a></li>
     <li><a href="#equipo">Equipo</a></li>
@@ -944,14 +985,12 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <h1 class="hero-logo">Vigía</h1>
-  <p class="hero-slogan">Inteligencia Preventiva</p>
+  <img src="img/vigia-logo.png" alt="Vigía — Inteligencia Preventiva" style="max-width: 320px; width: 100%; height: auto; margin-bottom: 20px; animation: fadeUp 0.6s 0.1s ease both;">
   <p class="hero-sub">
-    Protege a adultos mayores vulnerables detectando estafas telefónicas en tiempo real, alertando a un familiar de confianza
-    antes de que sea tarde.
+    La primera plataforma de software que detecta estafas telefónicas en tiempo real alertando a una persona de confianza antes de que sea tarde.
   </p>
   <div class="hero-btns">
-    <a href="#video" class="btn-primary">Ver el proyecto</a>
+    <a href="#encuesta" class="btn-primary">Ver el proyecto</a>
     <a href="#contacto" class="btn-ghost">Contactar</a>
   </div>
   <div class="scroll-hint">
@@ -978,30 +1017,10 @@ footer {
     </div>
     <div class="stat-item">
       <div class="stat-num">0</div>
-      <div class="stat-label">soluciones tecnológicas locales para líneas fijas residenciales</div>
+      <div class="stat-label">plataformas de software que protejan a un adulto mayor en tiempo real</div>
     </div>
   </div>
 </div>
-
-<!-- VIDEO -->
-<section class="video-section" id="video">
-  <div class="container" style="text-align:center;">
-    <div class="section-chip">El proyecto</div>
-    <h2 class="section-title">Conocé Vigía en 3 minutos</h2>
-    <p class="section-sub" style="margin:0 auto;">
-      El problema, la solución y nuestro equipo.
-    </p>
-    <div class="video-wrap">
-      <div class="video-placeholder" id="videoPlaceholder">
-        <div class="play-btn" onclick="loadVideo()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="#000"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <span class="video-label">Reproducir video · 3 min</span>
-      </div>
-      <div id="videoEmbed" style="display:none; width:100%; aspect-ratio:16/9;"></div>
-    </div>
-  </div>
-</section>
 
 <!-- SURVEY / KPIs -->
 <section class="survey-section" id="encuesta">
@@ -1033,7 +1052,7 @@ footer {
         <div class="kpi-sub">~ 2 de cada 3 personas</div>
       </div>
     </div>
-    <p class="survey-note">39 encuestados · Abril 2026 · Uruguay</p>
+
   </div>
 </section>
 
@@ -1041,27 +1060,27 @@ footer {
 <section id="como">
   <div class="container">
     <div class="section-chip">Cómo funciona</div>
-    <h2 class="section-title">De la llamada a la alerta en menos de 15 segundos.</h2>
+    <h2 class="section-title">De la llamada a la alerta en menos de 15 segundos — en cualquier teléfono.</h2>
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-title">Ingreso de llamada</div>
-        <div class="step-desc">La llamada ingresa al teléfono fijo del adulto mayor. Sin cambios.</div>
+        <div class="step-title">Activación simple</div>
+        <div class="step-desc">Instalás Vigía en el celular de tu familiar, o lo activamos sobre su línea fija. Sin cambios en su forma de usar el teléfono.</div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-title">Intercepción</div>
-        <div class="step-desc">Nuestro dispositivo ATA conectado al teléfono captura el audio de forma invisible.</div>
+        <div class="step-title">Escucha invisible</div>
+        <div class="step-desc">Nuestro software analiza el audio de la llamada en segundo plano, sin interrumpir ni delatarse.</div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-title">Análisis por IA</div>
-        <div class="step-desc">3 capas: filtrado de keywords y analisis de contexto a partir de transcripción de audio.</div>
+        <div class="step-desc">3 capas: filtrado de keywords y análisis de contexto a partir de transcripción de audio.</div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-title">Alerta al familiar</div>
-        <div class="step-desc">Llamada al celular en segundos. Sin apps y con cualquier operadora.</div>
+        <div class="step-desc">Llamada al celular en segundos. Sin apps de tu lado y con cualquier operadora.</div>
       </div>
       <div class="step">
         <div class="step-num">5</div>
@@ -1090,14 +1109,14 @@ footer {
           <div class="privacy-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <div class="privacy-text">
             <div class="privacy-title">Solo guardamos lo necesario</div>
-            <div class="privacy-body">Transcripts cifrados de llamadas de riesgo alto. Borrado automático a los 90 días.</div>
+            <div class="privacy-body">Las transcripciones de llamadas de alto riesgo se almacenan cifradas con borrado automático a los 90 días.</div>
           </div>
         </div>
         <div class="privacy-item">
           <div class="privacy-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <div class="privacy-text">
             <div class="privacy-title">Consentimiento explícito siempre</div>
-            <div class="privacy-body">El adulto mayor acepta al activar el servicio. Nada ocurre sin su permiso.</div>
+            <div class="privacy-body">Nos aseguramos de que nada ocurra sin el permiso del usuario y notificamos al interlocutor de que su llamada está siendo monitoreada.</div>
           </div>
         </div>
         <div class="privacy-item">
@@ -1110,7 +1129,7 @@ footer {
       </div>
       <div class="privacy-statement">
         <div class="privacy-quote">
-          "Los bancos graban tus llamadas. Gmail lee tus correos. Vigía hace algo <em>más limitado que ambos</em> — con consentimiento explícito y un único propósito: proteger a tu familiar."
+          Los bancos graban tus llamadas. <br>Gmail lee tus correos. Vigía hace algo <em>más limitado que ambos,</em> con consentimiento explícito y un único propósito: proteger a tu familiar.
         </div>
         
       </div>
@@ -1136,8 +1155,8 @@ footer {
       <div class="team-card">
         <div class="team-avatar vignette"><img src="img/esteban-martinez.jfif" alt="Esteban Martínez"></div>
         <div class="team-name">Esteban Martínez</div>
-        <div class="team-role">Co-fundador · Hardware & Infraestructura</div>
-        <div class="team-bio">Ingeniero Tecnológico en Electrónica, especializado en sistemas de control industrial, calibración y validación de hardware. Actualmente trabajo en Satellogic, empresa dedicada al desarrollo y operación de satélites de observación terrestre. Aporto mi experiencia para transformar las ideas en soluciones reales y técnicamente sólidas.</div>
+        <div class="team-role">Co-fundador · Infraestructura & Integraciones</div>
+        <div class="team-bio">Ingeniero Tecnológico en Electrónica, especializado en sistemas de control industrial, calibración y validación de hardware. Experiencia en manufactura de satélites y dispositivos médicos. Colaboro para llevar Vigía a cualquier canal, de forma robusta y confiable.</div>
         <a href="https://www.linkedin.com/in/martinez-esteban-uy/" target="_blank" class="linkedin-link" aria-label="LinkedIn de Esteban Martínez">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
@@ -1160,8 +1179,14 @@ footer {
       </div>
       <div class="status-card">
         <div class="status-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></div>
-        <div class="status-title">Hardware compatible con ANTEL</div>
-        <div class="status-body">ATA configurado con infraestructura doméstica de ANTEL. Integración SIP operativa y probada.</div>
+        <div class="status-title">App Android</div>
+        <div class="status-body">Canal principal de la plataforma: instalación directa en el celular del adulto mayor, sin hardware adicional.</div>
+        <span class="status-pill pill-green">Completado</span>
+      </div>
+      <div class="status-card">
+        <div class="status-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></div>
+        <div class="status-title">Canal de línea fija (ANTEL)</div>
+        <div class="status-body">MVP funcionando sobre infraestructura doméstica de ANTEL, con integración SIP operativa y probada.</div>
         <span class="status-pill pill-green">Completado</span>
       </div>
       <div class="status-card">
@@ -1176,12 +1201,34 @@ footer {
         <div class="status-body">Pre-incubados por el <a href="https://cie.ort.edu.uy/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">Centro de Innovación de ORT</a> y postulados al programa <a href="https://www.ande.org.uy/convocatorias/item/validacion-de-ideas-de-negocios-vin2026.html" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">VIN 2026 de ANDE/ANII</a>.</div>
         <span class="status-pill pill-cyan">En proceso</span>
       </div>
-      <div class="status-card">
-        <div class="status-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div class="status-title">Integrando en las primeras familias</div>
-        <div class="status-body">Comenzamos las primeras integraciones para validar el sistema en situaciones reales y seguir mejorándolo.</div>
-        <span class="status-pill pill-cyan">En proceso</span>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-chip">FAQ</div>
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>¿Funciona en iPhone?</summary>
+        <div class="faq-answer">
+          Hoy no: Apple no permite que ninguna app de terceros analice audio de llamadas en iOS. Estamos trabajando en una solución que funcione con iPhone, pero por ahora solo podemos proteger a adultos mayores con Android o línea fija.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Funciona en línea fija?</summary>
+        <div class="faq-answer">
+          Sí. Mediante un dispositivo SIP que se conecta a la línea fija, Vigía puede analizar llamadas entrantes y salientes. La instalación es simple y no requiere cambios en la línea ni en el teléfono.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué pasa con la privacidad?</summary>
+        <div class="faq-answer">
+         Contamos con un equipo legal para asegurar el cumplimiento de todas las normativas vigentes. El audio no se almacena, procesamos fragmentos de 15 segundos y los descartamos inmediatamente. Solo guardamos transcripts cifrados de llamadas de riesgo alto, con borrado automático a los 90 días. Podés leer la política completa en el apartado <a href="privacidad.html" style="color:var(--cyan); text-decoration:none;">Política de privacidad</a>.
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -1197,7 +1244,7 @@ footer {
       WhatsApp
     </a>
     <a href="mailto:hola@tuvigia.uy" class="btn-primary">Enviar email</a>
-    <a href="#video" class="btn-ghost">Ver el pitch</a>
+    <a href="#encuesta" class="btn-ghost">Ver el proyecto</a>
   </div>
 
 </section>
@@ -1209,8 +1256,7 @@ footer {
     <img src="img/cie.png" alt="CIE Universidad ORT Uruguay" class="footer-cie-img">
   </div>
   <div class="footer-center">
-    <div class="footer-logo">Vigía</div>
-    <div class="footer-slogan">Inteligencia Preventiva</div>
+    <img src="img/vigia-logo-footer.png" alt="Vigía" style="height: 36px; width: auto; display: block;">
   </div>
   <div class="footer-right">
     <span>© 2026 · Uruguay</span>
@@ -1219,14 +1265,6 @@ footer {
 </footer>
 
 <script>
-  function loadVideo() {
-    const placeholder = document.getElementById('videoPlaceholder');
-    const embed = document.getElementById('videoEmbed');
-    embed.innerHTML = '<iframe width="100%" height="100%" src="https://player.vimeo.com/video/1195429188?autoplay=1&color=00B4D8&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="aspect-ratio:16/9;display:block;"></iframe>';
-    placeholder.style.display = 'none';
-    embed.style.display = 'block';
-  }
-
   // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
