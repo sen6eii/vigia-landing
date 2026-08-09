@@ -19,6 +19,9 @@ RSS_FEEDS = [
     'https://news.google.com/rss/search?q=phishing+Uruguay&hl=es-419&gl=UY&ceid=UY:es-419'
 ]
 
+ALLOWED_DOMAINS = {'elpais.com.uy', 'montevideo.com.uy', 'elobservador.com.uy'}
+CURATED_WINDOW_END = datetime(2026, 9, 8, tzinfo=timezone.utc)
+
 KEYWORDS = [
     'estafa', 'estafas', 'fraude', 'fraudes', 'ciberseguridad', 'llamada', 'llamadas',
     'telefono', 'teléfono', 'scam', 'phishing', 'robos', 'delito', 'sospechoso'
@@ -110,6 +113,17 @@ def parse_feed(feed_url: str):
 
 
 def build_news():
+    now = datetime.now(timezone.utc)
+    if now < CURATED_WINDOW_END:
+        payload = {
+            'generated_at': now.isoformat(),
+            'items': CURATED_NEWS_ITEMS
+        }
+        with open(OUTPUT, 'w', encoding='utf-8') as fh:
+            json.dump(payload, fh, ensure_ascii=False, indent=2)
+        print(f'Wrote {len(CURATED_NEWS_ITEMS)} curated items to {OUTPUT}')
+        return
+
     all_items = []
     for feed in RSS_FEEDS:
         try:
@@ -120,6 +134,9 @@ def build_news():
     seen = set()
     unique = []
     for item in all_items:
+        host = urlparse(item['link']).netloc.lower()
+        if host not in ALLOWED_DOMAINS:
+            continue
         key = (item['title'], item['link'])
         if key in seen:
             continue
@@ -127,13 +144,9 @@ def build_news():
         unique.append(item)
 
     unique = unique[:6]
-    if len(unique) < 3:
-        for item in CURATED_NEWS_ITEMS:
-            if not any(existing['link'] == item['link'] for existing in unique):
-                unique.append(item)
 
     payload = {
-        'generated_at': datetime.now(timezone.utc).isoformat(),
+        'generated_at': now.isoformat(),
         'items': unique
     }
     with open(OUTPUT, 'w', encoding='utf-8') as fh:
