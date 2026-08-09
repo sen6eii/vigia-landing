@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Vigía — Inteligencia Preventiva">
 <meta name="twitter:description" content="IA que detecta estafas telefónicas en tiempo real y alerta al familiar antes de que sea tarde. Uruguay.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2306060F'/><text x='16' y='23' font-family='sans-serif' font-size='22' font-weight='900' fill='%23FFFFFF' text-anchor='middle'>V</text></svg>" type="image/svg+xml">
+<link rel="icon" href="img/images.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -160,6 +160,17 @@ nav {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes heroLogoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-logo {
   font-size: clamp(72px, 12vw, 120px);
   font-weight: 900;
@@ -172,12 +183,21 @@ nav {
 
 .hero-logo span { color: var(--cyan); }
 
-.hero-rule {
-  width: 80px; height: 3px;
-  background: var(--cyan);
-  border-radius: 2px;
-  margin: 0 auto 24px;
-  animation: fadeUp 0.6s 0.15s ease both;
+.hero-logo-mark {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  animation: heroLogoReveal 1.6s ease-out 0.3s forwards;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.18));
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.hero-logo-mark:hover {
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.25)) drop-shadow(0 6px 14px rgba(0,0,0,0.16));
+  transform: translateY(-1px) scale(1.005);
 }
 
 .hero-slogan {
@@ -294,6 +314,60 @@ nav {
 section { padding: 96px 24px; }
 
 .container { max-width: 1100px; margin: 0 auto; }
+
+.news-section {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.news-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.news-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.news-list {
+  display: grid;
+  gap: 12px;
+}
+
+.news-item {
+  display: block;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  color: var(--t2);
+  text-decoration: none;
+}
+
+.news-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.news-item strong {
+  display: block;
+  color: var(--t1);
+  font-size: 14px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.news-item span {
+  font-size: 12px;
+  color: var(--t3);
+}
 
 .section-chip {
   display: inline-block;
@@ -985,7 +1059,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <img src="img/vigia-logo.png" alt="Vigía — Inteligencia Preventiva" style="max-width: 320px; width: 100%; height: auto; margin-bottom: 20px; animation: fadeUp 0.6s 0.1s ease both;">
+  <img src="img/vigia-logo.png" alt="Vigía — Inteligencia Preventiva" class="hero-logo-mark">
   <p class="hero-sub">
     La primera plataforma de software que detecta estafas telefónicas en tiempo real alertando a una persona de confianza antes de que sea tarde.
   </p>
@@ -1053,6 +1127,29 @@ footer {
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-section" id="news-section">
+  <div class="container">
+    <div class="news-card">
+      <div class="news-title">Noticias recientes sobre estafas en Uruguay</div>
+      <div id="news-list" class="news-list">
+        <a class="news-item" href="https://www.elpais.com.uy/informacion/policiales/hombre-de-90-anos-cayo-con-el-cuento-del-tio-en-fray-bentos-y-saco-un-prestamo-para-pagarle-a-su-falso-nieto" target="_blank" rel="noopener noreferrer">
+          <strong>Hombre de 90 años cayó con el cuento del tío en Fray Bentos y sacó un préstamo para pagarle a su falso nieto</strong>
+          <span>El País</span>
+        </a>
+        <a class="news-item" href="https://www.montevideo.com.uy/Noticias/Estafas-telefonicas-nuevos-casos-llaman-la-atencion-por-altas-sumas-y-perfil-de-victima-uc965550" target="_blank" rel="noopener noreferrer">
+          <strong>Estafas telefónicas: nuevos casos llaman la atención por altas sumas y perfil de víctima</strong>
+          <span>Montevideo Portal</span>
+        </a>
+        <a class="news-item" href="https://www.subrayado.com.uy/nuevo-caso-del-cuento-del-tio-montevideo-una-mujer-entrego-1500000-pesos-y-50000-dolares-delincuentes-n1010644" target="_blank" rel="noopener noreferrer">
+          <strong>Nuevo caso del cuento del tío en Montevideo: una mujer entregó $1.500.000 y US$50.000 a delincuentes</strong>
+          <span>Subrayado</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1265,22 +1362,63 @@ footer {
 </footer>
 
 <script>
-  // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.kpi-card, .step, .privacy-item, .team-card, .status-card').forEach(el => {
+  document.querySelectorAll('.kpi-card, .step, .privacy-item, .team-card, .status-card').forEach((el) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(el);
   });
+
+  const fallbackItems = [
+    {
+      title: 'Hombre de 90 años cayó con el cuento del tío en Fray Bentos y sacó un préstamo para pagarle a su falso nieto',
+      link: 'https://www.elpais.com.uy/informacion/policiales/hombre-de-90-anos-cayo-con-el-cuento-del-tio-en-fray-bentos-y-saco-un-prestamo-para-pagarle-a-su-falso-nieto',
+      source: 'El País'
+    },
+    {
+      title: 'Estafas telefónicas: nuevos casos llaman la atención por altas sumas y perfil de víctima',
+      link: 'https://www.montevideo.com.uy/Noticias/Estafas-telefonicas-nuevos-casos-llaman-la-atencion-por-altas-sumas-y-perfil-de-victima-uc965550',
+      source: 'Montevideo Portal'
+    },
+    {
+      title: 'Nuevo caso del cuento del tío en Montevideo: una mujer entregó $1.500.000 y US$50.000 a delincuentes',
+      link: 'https://www.subrayado.com.uy/nuevo-caso-del-cuento-del-tio-montevideo-una-mujer-entrego-1500000-pesos-y-50000-dolares-delincuentes-n1010644',
+      source: 'Subrayado'
+    }
+  ];
+
+  function renderNews(items) {
+    const section = document.getElementById('news-section');
+    const list = document.getElementById('news-list');
+    if (!section || !list) return;
+
+    if (!items || !items.length) {
+      section.style.display = 'none';
+      return;
+    }
+
+    list.innerHTML = items.slice(0, 3).map((item) => `
+      <a class="news-item" href="${item.link}" target="_blank" rel="noopener noreferrer">
+        <strong>${item.title}</strong>
+        <span>${item.source || 'Fuente externa'}</span>
+      </a>
+    `).join('');
+    section.style.display = 'block';
+  }
+
+  fetch('./news.json', { cache: 'no-store' })
+    .then((response) => response.ok ? response.json() : Promise.reject('No news'))
+    .then((data) => renderNews(data.items || []))
+    .catch(() => renderNews(fallbackItems));
 </script>
 </body>
 </html>
